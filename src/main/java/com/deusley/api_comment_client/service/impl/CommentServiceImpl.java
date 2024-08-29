@@ -8,6 +8,8 @@ import com.deusley.api_comment_client.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -36,6 +38,8 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void delete(Integer id) {
+
+        //not implemented // optional
 
     }
 }

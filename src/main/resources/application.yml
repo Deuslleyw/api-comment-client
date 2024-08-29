@@ -7,4 +7,4 @@ spring:
       database: api-comment-client
 
 server:
-  port: 8084
+  port: 8082
