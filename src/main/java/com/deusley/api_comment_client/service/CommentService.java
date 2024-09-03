@@ -10,8 +10,6 @@ public interface CommentService {
 
     Comment findById(String id);
 
+    List<Comment> findAll();
 
-    void delete(Integer id);
-
-    //not implemented // optional
 }

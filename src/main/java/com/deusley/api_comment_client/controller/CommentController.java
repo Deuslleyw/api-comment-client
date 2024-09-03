@@ -1,17 +1,17 @@
 package com.deusley.api_comment_client.controller;
 
-
 import com.deusley.api_comment_client.controller.request.CommentsRequest;
 import com.deusley.api_comment_client.domain.Comment;
 import com.deusley.api_comment_client.mapper.CommentMapper;
 import com.deusley.api_comment_client.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping(value = "/api/v1/comments/")
+@RequestMapping(value = "/api/v1/comments")
 public class CommentController {
 
     @Autowired
@@ -27,11 +27,15 @@ public class CommentController {
         service.create(comments);
         return comments;
     }
-
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public  Comment findById(@PathVariable("id") String id) {
         return (Comment) service.findById(id);
 
+    }
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<Comment> findAll(){
+        return service.findAll();
     }
 }
