@@ -4,13 +4,10 @@ package com.deusley.api_comment_client.service.impl;
 import com.deusley.api_comment_client.domain.Comment;
 import com.deusley.api_comment_client.mapper.CommentMapper;
 import com.deusley.api_comment_client.repository.CommentRepository;
-import com.deusley.api_comment_client.repository.entity.CommentEntity;
 import com.deusley.api_comment_client.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,7 +27,6 @@ public class CommentServiceImpl implements CommentService {
         repository.save(commentEntity);
         return comment;
     }
-
     @Override
     public Comment findById(String id) {
         var comments = repository.findById(id)
@@ -38,7 +34,6 @@ public class CommentServiceImpl implements CommentService {
                 .orElseThrow(RuntimeException::new);
         return comments;
     }
-
     @Override
     public List<Comment> findAll() {
         var allComments = repository.findAll();
